@@ -14,7 +14,7 @@
     <groupId>groupId</groupId>
     <artifactId>edn-network-data-transformer</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>edn-network-data-transformer</name>
+    <name>edn-network-data-com.equinix.edn.networkdatatransformer.transformer</name>
 
     <properties>
         <java.version>8</java.version>
