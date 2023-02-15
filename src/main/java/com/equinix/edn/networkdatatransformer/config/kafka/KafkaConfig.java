@@ -22,6 +22,8 @@ public class KafkaConfig {
 
     private String brokerAddress;
     private Map<String, KafkaTopicConfig> topic;
+    private String consumerGroup;
+    private Integer concurrency;
 
     @PostConstruct
     public void logConfiguration() {
