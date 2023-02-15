@@ -1,7 +1,7 @@
 edn:
   kafka:
     broker-address: enps-nal-dev1.tlab.equinix.com:9092,enps-nal-dev1.tlab.equinix.com:9093,enps-nal-dev1.tlab.equinix.com:9094
-    consumer-group-name: edn-network-data-transformer
+    consumer-group: edn-network-data-transformer
     concurrency: 1
     topic:
       raw-data:

@@ -10,14 +10,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ContainerProperties;
-import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.kafka.support.converter.MessagingMessageConverter;
 
 @Configuration
 public class KafkaConsumerConfig {
     private final KafkaConfig kafkaConfig;
+    private final MessagingMessageConverter simpleMapperConverter;
 
-    public KafkaConsumerConfig(KafkaConfig kafkaConfig) {
+    public KafkaConsumerConfig(KafkaConfig kafkaConfig, MessagingMessageConverter simpleMapperConverter) {
         this.kafkaConfig = kafkaConfig;
+        this.simpleMapperConverter = simpleMapperConverter;
     }
 
     private Map<String, Object> commonProperties() {
@@ -28,15 +30,14 @@ public class KafkaConsumerConfig {
         return props;
     }
 
-    private DefaultKafkaConsumerFactory<String, Object> networDataTransformerConsumerProps(){
+    private DefaultKafkaConsumerFactory<String, String> networDataTransformerConsumerProps() {
 
         Map<String, Object> properties = commonProperties();
-        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class.getName());
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaConfig.getConsumerGroup());
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-        properties.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
-        return new DefaultKafkaConsumerFactory<>(properties);
+        return new DefaultKafkaConsumerFactory<>(properties, new StringDeserializer(), new StringDeserializer());
     }
 
     @Bean
@@ -48,6 +49,7 @@ public class KafkaConsumerConfig {
         factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
         factory.setConsumerFactory(networDataTransformerConsumerProps());
         factory.setConcurrency(kafkaConfig.getConcurrency());
+        factory.setMessageConverter(simpleMapperConverter);
         return factory;
     }
 }
