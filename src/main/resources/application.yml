@@ -4,8 +4,8 @@ edn:
     consumer-group: edn-network-data-transformer
     concurrency: 1
     topic:
-      raw-data:
-        topic-name: edn-raw-telemetry-data
+      gnmi-raw-data:
+        topic-name: edn-gnmi-raw-telemetry-data
         partitions: 1
         replicas: 1
       normalized-data:

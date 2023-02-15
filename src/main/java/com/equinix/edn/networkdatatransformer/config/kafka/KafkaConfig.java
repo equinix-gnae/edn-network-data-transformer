@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class KafkaConfig {
 
 
-    private static final String TOPIC_GROUP_RAW_DATA = "raw-data";
+    private static final String TOPIC_GROUP_RAW_DATA = "gnmi-raw-data";
     private static final String TOPIC_GROUP_NORMALIZED_DATA = "normalized-data";
     private final ConfigurableBeanFactory beanFactory;
     private String brokerAddress;

@@ -3,6 +3,8 @@ package com.equinix.edn.networkdatatransformer.config.kafka;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.equinix.edn.networkdatatransformer.dto.GnmiMessage;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +13,7 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.converter.MessagingMessageConverter;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 @Configuration
 public class KafkaConsumerConfig {
@@ -33,11 +36,12 @@ public class KafkaConsumerConfig {
     private DefaultKafkaConsumerFactory<String, String> networDataTransformerConsumerProps() {
 
         Map<String, Object> properties = commonProperties();
-        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        properties.put(JsonDeserializer.VALUE_DEFAULT_TYPE, GnmiMessage.class);
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaConfig.getConsumerGroup());
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
-        return new DefaultKafkaConsumerFactory<>(properties, new StringDeserializer(), new StringDeserializer());
+        return new DefaultKafkaConsumerFactory<>(properties);
     }
 
     @Bean
