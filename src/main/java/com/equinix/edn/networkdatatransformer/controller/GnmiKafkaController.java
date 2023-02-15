@@ -7,7 +7,6 @@ import com.equinix.edn.networkdatatransformer.service.GnmiDataProcessor;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
-import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -25,7 +24,9 @@ public class GnmiKafkaController {
         this.gnmiDataProcessor = gnmiDataProcessor;
     }
 
-    @KafkaListener(topics = "${edn.kafka.topic.gnmi-raw-data.topic-name}", containerFactory = "networkDataTransformerConsumerFactory")
+    @KafkaListener(topics = "${edn.kafka.topic.gnmi-raw-data.topic-name}",
+            containerFactory = "networkDataTransformerConsumerFactory",
+            errorHandler = "gnmiKafkaListenerExceptionHandler")
     public void rawNetworkDataListener(@Payload @Valid  GnmiMessage message, Acknowledgment acknowledgment) {
         log.info("[GNMI] Raw Network Data Payload {}", message);
         gnmiDataProcessor.process(message);
