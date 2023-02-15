@@ -7,10 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.equinix.edn.networkdatatransformer.dto.KafkaTopic;
+
 import org.apache.kafka.clients.admin.AdminClientConfig;
-import org.apache.kafka.clients.admin.KafkaAdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -18,9 +18,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.support.converter.MessagingMessageConverter;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Data
@@ -34,7 +32,7 @@ public class KafkaConfig {
     private static final String TOPIC_GROUP_NORMALIZED_DATA = "normalized-data";
     private final ConfigurableBeanFactory beanFactory;
     private String brokerAddress;
-    private Map<String, KafkaTopicConfig> topic;
+    private Map<String, KafkaTopic> topic;
     private String consumerGroup;
     private Integer concurrency;
 
@@ -49,23 +47,23 @@ public class KafkaConfig {
 
     @PostConstruct
     public void createTopics() {
-        List<KafkaTopicConfig> topics = getTopics();
+        List<KafkaTopic> topics = getTopics();
 
-        topics.forEach(kafkaTopicConfig -> {
-            if (!beanFactory.containsSingleton(kafkaTopicConfig.getTopicName())) {
-                beanFactory.registerSingleton(kafkaTopicConfig.getTopicName(), new NewTopic(
-                        kafkaTopicConfig.getTopicName(), kafkaTopicConfig.getPartitions(),
-                        kafkaTopicConfig.getReplicas()));
+        topics.forEach(kafkaTopic -> {
+            if (!beanFactory.containsSingleton(kafkaTopic.getTopicName())) {
+                beanFactory.registerSingleton(kafkaTopic.getTopicName(), new NewTopic(
+                        kafkaTopic.getTopicName(), kafkaTopic.getPartitions(),
+                        kafkaTopic.getReplicas()));
             }
         });
 
     }
 
-    private List<KafkaTopicConfig> getTopics() {
-        List<KafkaTopicConfig> topicList = new LinkedList<>();
-        KafkaTopicConfig rawDataTopicConfig = topic.get(TOPIC_GROUP_RAW_DATA);
+    private List<KafkaTopic> getTopics() {
+        List<KafkaTopic> topicList = new LinkedList<>();
+        KafkaTopic rawDataTopicConfig = topic.get(TOPIC_GROUP_RAW_DATA);
         topicList.add(rawDataTopicConfig);
-        KafkaTopicConfig normalizedDataTopicConfig = topic.get(TOPIC_GROUP_NORMALIZED_DATA);
+        KafkaTopic normalizedDataTopicConfig = topic.get(TOPIC_GROUP_NORMALIZED_DATA);
         topicList.add(normalizedDataTopicConfig);
         return topicList;
     }
