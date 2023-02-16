@@ -16,11 +16,11 @@ import lombok.extern.slf4j.Slf4j;
 @Validated
 @Controller
 @Slf4j
-public class GnmiKafkaController {
+public class GnmiKafkaListener {
 
     private final GnmiDataProcessor gnmiDataProcessor;
 
-    public GnmiKafkaController(GnmiDataProcessor gnmiDataProcessor) {
+    public GnmiKafkaListener(GnmiDataProcessor gnmiDataProcessor) {
         this.gnmiDataProcessor = gnmiDataProcessor;
     }
 

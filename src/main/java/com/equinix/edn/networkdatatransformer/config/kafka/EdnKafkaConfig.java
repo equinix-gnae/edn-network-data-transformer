@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @ConfigurationProperties("edn.kafka")
 @Slf4j
-public class KafkaConfig {
+public class EdnKafkaConfig {
 
 
     private static final String TOPIC_GROUP_RAW_DATA = "gnmi-raw-data";
@@ -36,7 +36,7 @@ public class KafkaConfig {
     private String consumerGroup;
     private Integer concurrency;
 
-    public KafkaConfig(ConfigurableBeanFactory beanFactory){
+    public EdnKafkaConfig(ConfigurableBeanFactory beanFactory){
         this.beanFactory = beanFactory;
     }
 

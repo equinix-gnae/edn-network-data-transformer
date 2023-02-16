@@ -15,7 +15,7 @@ public class DruidMessage {
     @JsonProperty("data_point_name")
     private DataPointName dataPointName;
     @JsonProperty("event_id")
-    private Long eventId;
+    private String eventId;
     @JsonProperty("event_time_iso")
     private String eventTimeIso;
     @JsonProperty("event_timestamp")
