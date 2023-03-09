@@ -1,9 +1,9 @@
 ### EDN Network Data Transformer
 This microservice is designed to collect data from network routers, transform and normalize it, and persist it in Druid for analysis and reporting purposes. The com.equinix.edn.networkdatatransformer.service is built using Spring Boot and can be easily configured and deployed in a variety of environments.
 
-##Sample GNMIc Data from Juniper, Nokia, and Arrcus routers
-##Interface Stats
-#Junos
+## Sample GNMIc Data from Juniper, Nokia, and Arrcus routers
+## Interface Stats
+# Junos
 Interface Stats
 [
 {
@@ -35,7 +35,7 @@ Interface Stats
 ]
 
 
-#Nokia
+# Nokia
 [
 {
 "name": "nokia-interface",
@@ -90,8 +90,8 @@ Interface Stats
 }
 ]
 
-##Interface State
-#Junos
+## Interface State
+# Junos
 [
 {
 "name": "junos-interface",
@@ -109,7 +109,7 @@ Interface Stats
 }
 ]
 
-#Nokia
+# Nokia
 [
 {
 "name": "nokia-interface",
@@ -127,7 +127,7 @@ Interface Stats
 }
 ]
 
-#Arrcus
+# Arrcus
 [
 {
 "name": "arrcus-interface",
@@ -145,8 +145,8 @@ Interface Stats
 }
 ]
 
-##BGP Session State
-#Junos
+## BGP Session State
+# Junos
 [
 {
 "name": "junos-network-instance",
@@ -165,7 +165,7 @@ Interface Stats
 }
 ]
 
-#Nokia
+# Nokia
 [
 {
 "name": "nokia-network-instance",
@@ -186,8 +186,8 @@ Interface Stats
 
 
 
-##BGP Admin State
-#Junos
+## BGP Admin State
+# Junos
 [
 {
 "name": "junos-network-instance",
@@ -206,8 +206,8 @@ Interface Stats
 }
 ]
 
-##BGP Route Counts
-#Nokia
+## BGP Route Counts
+# Nokia
 [
 {
 "name": "nokia-network-instance",
