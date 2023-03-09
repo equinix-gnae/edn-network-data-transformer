@@ -1,5 +1,11 @@
 # EDN Network Data Transformer
 This microservice is designed to collect data from network routers, transform and normalize it, and persist it in Druid for analysis and reporting purposes. The com.equinix.edn.networkdatatransformer.service is built using Spring Boot and can be easily configured and deployed in a variety of environments.
+## Druid Schema
+The Druid schema is defined in the com.equinix.edn.networkdatatransformer.dto.DruidMessage class. 
+## Data Sources
+Name: edn_network_data
+Dimensions: event_id, timestamp, timestamp_iso, processed_at, processed_at_iso, subscription_name, tags, metric_value, state
+Metrics: metric_value
 
 ## Sample GNMIc Data from Juniper, Nokia, and Arrcus routers
 ## Interface Stats
