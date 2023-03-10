@@ -5,7 +5,7 @@ edn:
     concurrency: 1
     topic:
       gnmi-raw-data:
-        topic-name: edn-gnmi-raw-telemetry-data
+        topic-name: gnmic-telemetry
         partitions: 1
         replicas: 1
       normalized-data:

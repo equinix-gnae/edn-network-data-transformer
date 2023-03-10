@@ -22,6 +22,6 @@ public class GnmiDataProcessor {
 
     public void process(GnmiMessage gnmiMessage) {
 
-        List<DruidMessage> druidMessageList = gnmiToInterfaceStatsTransformer.toInterfaceStatsForDruid(gnmiMessage);
+      //  List<DruidMessage> druidMessageList = gnmiToInterfaceStatsTransformer.toInterfaceStatsForDruid(gnmiMessage);
     }
 }

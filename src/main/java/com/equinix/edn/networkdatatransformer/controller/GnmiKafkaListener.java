@@ -24,10 +24,11 @@ public class GnmiKafkaListener {
         this.gnmiDataProcessor = gnmiDataProcessor;
     }
 
+    //Consume raw network data from Kafka
     @KafkaListener(topics = "${edn.kafka.topic.gnmi-raw-data.topic-name}",
-            containerFactory = "networkDataTransformerConsumerFactory",
+            containerFactory = "networDataTransformerListenerContainerFactory",
             errorHandler = "gnmiKafkaListenerExceptionHandler")
-    public void rawNetworkDataListener(@Payload @Valid  GnmiMessage message, Acknowledgment acknowledgment) {
+    public void rawNetworkDataListener(@Payload @Valid GnmiMessage message, Acknowledgment acknowledgment) {
         log.info("[GNMI] Raw Network Data Payload {}", message);
         gnmiDataProcessor.process(message);
         acknowledgment.acknowledge();
