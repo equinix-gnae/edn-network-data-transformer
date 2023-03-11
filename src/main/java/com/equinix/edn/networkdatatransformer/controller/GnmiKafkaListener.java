@@ -2,6 +2,9 @@ package com.equinix.edn.networkdatatransformer.controller;
 
 import javax.validation.Valid;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+
 import com.equinix.edn.networkdatatransformer.dto.GnmiMessage;
 import com.equinix.edn.networkdatatransformer.service.GnmiDataProcessor;
 
@@ -28,7 +31,7 @@ public class GnmiKafkaListener {
     @KafkaListener(topics = "${edn.kafka.topic.gnmi-raw-data.topic-name}",
             containerFactory = "networDataTransformerListenerContainerFactory",
             errorHandler = "gnmiKafkaListenerExceptionHandler")
-    public void rawNetworkDataListener(@Payload @Valid GnmiMessage message, Acknowledgment acknowledgment) {
+    public void rawNetworkDataListener(@Payload @Valid List<LinkedHashMap<String, Object>> message, Acknowledgment acknowledgment) {
         log.info("[GNMI] Raw Network Data Payload {}", message);
         gnmiDataProcessor.process(message);
         acknowledgment.acknowledge();

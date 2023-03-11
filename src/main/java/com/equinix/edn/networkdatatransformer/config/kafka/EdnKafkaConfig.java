@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.equinix.edn.networkdatatransformer.constants.KafkaConfigConstants;
 import com.equinix.edn.networkdatatransformer.dto.KafkaTopic;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
@@ -28,8 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 public class EdnKafkaConfig {
 
 
-    private static final String TOPIC_GROUP_RAW_DATA = "gnmi-raw-data";
-    private static final String TOPIC_GROUP_NORMALIZED_DATA = "normalized-data";
+
     private final ConfigurableBeanFactory beanFactory;
     private String brokerAddress;
     private Map<String, KafkaTopic> topic;
@@ -61,9 +61,9 @@ public class EdnKafkaConfig {
 
     private List<KafkaTopic> getTopics() {
         List<KafkaTopic> topicList = new LinkedList<>();
-        KafkaTopic rawDataTopicConfig = topic.get(TOPIC_GROUP_RAW_DATA);
+        KafkaTopic rawDataTopicConfig = topic.get(KafkaConfigConstants.TOPIC_GROUP_RAW_DATA);
         topicList.add(rawDataTopicConfig);
-        KafkaTopic normalizedDataTopicConfig = topic.get(TOPIC_GROUP_NORMALIZED_DATA);
+        KafkaTopic normalizedDataTopicConfig = topic.get(KafkaConfigConstants.TOPIC_GROUP_NORMALIZED_DATA);
         topicList.add(normalizedDataTopicConfig);
         return topicList;
     }
