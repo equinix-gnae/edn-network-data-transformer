@@ -15,6 +15,7 @@ public class GnmiKafkaListenerExceptionHandler implements ConsumerAwareListenerE
     @Override
     public Object handleError(Message<?> message, ListenerExecutionFailedException e, Consumer<?, ?> consumer) {
         log.error("[GNMI] Handling error in Kafka Listener. Error Message: {}", e.getMessage());
+        e.printStackTrace();
         consumer.commitSync();
         return null;
     }

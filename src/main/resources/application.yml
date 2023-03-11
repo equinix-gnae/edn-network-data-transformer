@@ -1,11 +1,12 @@
 edn:
   kafka:
-    broker-address: enps-nal-dev1.tlab.equinix.com:9092,enps-nal-dev1.tlab.equinix.com:9093,enps-nal-dev1.tlab.equinix.com:9094
+    #broker-address: enps-nal-dev1.tlab.equinix.com:9092,enps-nal-dev1.tlab.equinix.com:9093,enps-nal-dev1.tlab.equinix.com:9094
+    broker-address: sv3lxgna-kafka.lab.equinix.com:9092
     consumer-group: edn-network-data-transformer
     concurrency: 1
     topic:
       gnmi-raw-data:
-        topic-name: edn-gnmi-raw-telemetry-data
+        topic-name: gnmic-telemetry
         partitions: 1
         replicas: 1
       normalized-data:
