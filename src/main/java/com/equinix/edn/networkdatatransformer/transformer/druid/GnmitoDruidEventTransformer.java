@@ -27,16 +27,20 @@ public class GnmitoDruidEventTransformer implements DruidTransformer<List<DruidM
         List<DruidMessage> druidMessageList = new LinkedList<>();
 
         gnmiMessage.getValues().getGnmiSensorMetricMap().forEach((key, value) -> {
-            DruidMessage druidMessage = DruidMessage.builder()
-                                                    .dataPointName(key)
-                                                    .eventTimeIso(convertTimestampToISO(gnmiMessage.getTimestamp()))
-                                                    .eventTimestamp(gnmiMessage.getTimestamp())
-                                                    .eventProcessedTimeIso(convertTimestampToISO(Instant.now().toEpochMilli()))
-                                                    .eventProcessedTime(Instant.now().toEpochMilli())
-                                                    .tags(convertGnmiTagsToDruidTags(gnmiMessage.getTags()))
-                                                    .metricValue(value)
-                                                    .build();
-            druidMessageList.add(druidMessage);
+            if (null != value) {
+                DruidMessage druidMessage = DruidMessage.builder()
+                                                        .dataPointName(key)
+                                                        //converting nanoseconds to milliseconds
+                                                        .eventTimeIso(convertTimestampToISO(gnmiMessage.getTimestamp()/1000000L))
+                                                        .eventTimestamp(gnmiMessage.getTimestamp())
+                                                        .eventProcessedTimeIso(
+                                                                convertTimestampToISO(Instant.now().toEpochMilli()))
+                                                        .eventProcessedTime(Instant.now().toEpochMilli())
+                                                        .tags(convertGnmiTagsToDruidTags(gnmiMessage.getTags()))
+                                                        .metricValue(value)
+                                                        .build();
+                druidMessageList.add(druidMessage);
+            }
         });
 
         return druidMessageList;
