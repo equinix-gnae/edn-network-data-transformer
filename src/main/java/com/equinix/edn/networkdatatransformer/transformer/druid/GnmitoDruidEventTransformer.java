@@ -60,6 +60,9 @@ public class GnmitoDruidEventTransformer implements DruidTransformer<List<DruidM
         druidTags.put(DruidTagsConstants.SOURCE, tags.getSource());
         druidTags.put(DruidTagsConstants.INTERFACE_NAME, tags.getInterfaceName());
         druidTags.put(DruidTagsConstants.SUBSCRIPTION_NAME, tags.getSubscriptionName());
+
+        druidTags.entrySet().removeIf(entry -> entry.getValue() == null);
+
         return druidTags;
     }
 

@@ -2,6 +2,7 @@ package com.equinix.edn.networkdatatransformer.dto;
 
 import java.util.LinkedHashMap;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DruidMessage {
     @JsonProperty("datapoint_name")
     private String dataPointName;
