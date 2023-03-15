@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.equinix.edn.networkdatatransformer.constants.GnmiSensorConstants;
 import com.equinix.edn.networkdatatransformer.dto.DruidMessage;
 import com.equinix.edn.networkdatatransformer.dto.GnmiMessage;
 import com.equinix.edn.networkdatatransformer.dto.GnmiMessageType;
@@ -27,8 +28,8 @@ public class InterfaceDataTransformer implements GnmiMessageTransformer{
         });
 
         if (null != gnmiMessage.getValues().getOperStatus()) {
-            DruidMessage druidMessage = createDruidMessageBuilder(gnmiMessage, "operStatus", null);
-            druidMessage.setState(gnmiMessage.getValues().getOperStatus().toString());
+            DruidMessage druidMessage = createDruidMessageBuilder(gnmiMessage, GnmiSensorConstants.OPER_STATUS, null);
+            druidMessage.setState(gnmiMessage.getValues().getOperStatus());
             druidMessageList.add(druidMessage);
         }
 
