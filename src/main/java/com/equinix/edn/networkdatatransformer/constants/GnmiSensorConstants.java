@@ -20,4 +20,6 @@ public class GnmiSensorConstants {
     public static final String OUT_ERRORS = "out_errors";
     public static final String IN_PACKETS = "in_packets";
     public static final String OUT_PACKETS = "out_packets";
+
+    public static final String OPER_STATUS = "oper_status";
 }

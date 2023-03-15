@@ -27,6 +27,9 @@ public class DruidKafkaProducer {
     }
 
     public void sendMessages(List<DruidMessage> messages, String topic) {
+        if (messages == null || messages.isEmpty()) {
+            return;
+        }
         messages.forEach(message -> {
            sendDruidMessageToKafka(message, topic);
         });

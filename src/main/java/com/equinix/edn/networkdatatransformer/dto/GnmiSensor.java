@@ -67,8 +67,10 @@ public class GnmiSensor {
     private Long inPackets;
     @JsonProperty("out-packets")
     private Long outPackets;
+    @JsonProperty("oper-status")
+    private String operStatus;
 
-    public Map<String, Long> getGnmiSensorMetricMap(){
+    public Map<String, Long> getInterfaceStatsGnmiSensorMetricMap(){
         Map<String, Long> sensorMap = new HashMap<>();
         sensorMap.put(GnmiSensorConstants.CARRIER_TRANSITIONS, this.carrierTransitions);
         sensorMap.put(GnmiSensorConstants.HIGH_SPEED, this.highSpeed);
@@ -90,6 +92,8 @@ public class GnmiSensor {
         sensorMap.put(GnmiSensorConstants.OUT_ERRORS, this.outErrors);
         return sensorMap;
     }
+
+
 
 
 
