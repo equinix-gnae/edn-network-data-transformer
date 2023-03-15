@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GnmiMessage {
     @NotEmpty(message = "Name is required")
-    private String name;
+    private GnmiMessageType name;
     private long timestamp;
     @NotNull(message = "Tags are required")
     private GnmiTag tags;
