@@ -69,6 +69,15 @@ public class GnmiSensor {
     private Long outPackets;
     @JsonProperty("oper-status")
     private String operStatus;
+    @JsonProperty("session-state")
+    private String bgpSessionState;
+    @JsonProperty("session-admin-status")
+    private String bgpAdminState;
+    @JsonProperty("active-routes")
+    private Long bgpActiveRoutes;
+    @JsonProperty("available-routes")
+    private Long bgpAvailableRoutes;
+
 
     public Map<String, Long> getInterfaceStatsGnmiSensorMetricMap(){
         Map<String, Long> sensorMap = new HashMap<>();
@@ -93,8 +102,17 @@ public class GnmiSensor {
         return sensorMap;
     }
 
+    public Map<String, Long> getBgpStatsGnmiSensorMetricMap(){
+        Map<String, Long> sensorMap = new HashMap<>();
+        sensorMap.put(GnmiSensorConstants.BGP_ACTIVE_ROUTES, this.bgpActiveRoutes);
+        sensorMap.put(GnmiSensorConstants.BGP_AVAILABLE_ROUTES, this.bgpAvailableRoutes);
+        return sensorMap;
+    }
 
-
-
-
+    public Map<String, String> getBgpStateSensorMap(){
+        Map<String, String> sensorMap = new HashMap<>();
+        sensorMap.put(GnmiSensorConstants.BGP_SESSION_STATE, this.bgpSessionState);
+        sensorMap.put(GnmiSensorConstants.BGP_ADMIN_STATE, this.bgpAdminState);
+        return sensorMap;
+    }
 }

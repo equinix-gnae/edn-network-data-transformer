@@ -22,4 +22,12 @@ public class GnmiSensorConstants {
     public static final String OUT_PACKETS = "out_packets";
 
     public static final String OPER_STATUS = "oper_status";
+
+    public static final String BGP_SESSION_STATE = "bgp_session_state";
+
+    public static final String BGP_ADMIN_STATE = "bgp_admin_state";
+
+    public static final String BGP_ACTIVE_ROUTES = "bgp_active_routes";
+
+    public static final String BGP_AVAILABLE_ROUTES = "bgp_available_routes";
 }
