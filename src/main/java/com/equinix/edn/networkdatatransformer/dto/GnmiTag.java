@@ -20,4 +20,8 @@ public class GnmiTag {
     private String interfaceName;
     @JsonProperty(value = "subscription_name")
     private String subscriptionName;
+    @JsonAlias({"neighbor_neighbor-address", "neighbor_ip-address"})
+    private String neighborAddress;
+    @JsonAlias({"network-instance_name", "vprn_service-name"})
+    private String networkInstanceName;
 }

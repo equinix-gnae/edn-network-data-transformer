@@ -1,6 +1,5 @@
 package com.equinix.edn.networkdatatransformer.transformer.druid;
 
-import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,13 +21,14 @@ public class InterfaceDataTransformer implements GnmiMessageTransformer{
         List<DruidMessage> druidMessageList = new LinkedList<>();
         gnmiMessage.getValues().getInterfaceStatsGnmiSensorMetricMap().forEach((key, value) -> {
             if (null != value) {
-                DruidMessage druidMessage = createDruidMessageBuilder(gnmiMessage, key, value);
+                DruidMessage druidMessage = GnmiMessageUtils.createDruidMessage(gnmiMessage, key, value);
                 druidMessageList.add(druidMessage);
             }
         });
 
         if (null != gnmiMessage.getValues().getOperStatus()) {
-            DruidMessage druidMessage = createDruidMessageBuilder(gnmiMessage, GnmiSensorConstants.OPER_STATUS, null);
+            DruidMessage druidMessage =
+                    GnmiMessageUtils.createDruidMessage(gnmiMessage, GnmiSensorConstants.OPER_STATUS, null);
             druidMessage.setState(gnmiMessage.getValues().getOperStatus());
             druidMessageList.add(druidMessage);
         }
@@ -36,17 +36,6 @@ public class InterfaceDataTransformer implements GnmiMessageTransformer{
         return druidMessageList;
     }
 
-    private DruidMessage createDruidMessageBuilder(GnmiMessage gnmiMessage, String dataPointName, Long value) {
-        long milliseconds = gnmiMessage.getTimestamp() / 1000000L;
-        return DruidMessage.builder()
-                           .dataPointName(dataPointName)
-                           .eventTimeIso(GnmiMessageUtils.convertTimestampToISO(milliseconds))
-                           .eventTimestamp(gnmiMessage.getTimestamp())
-                           .eventProcessedTimeIso(GnmiMessageUtils.convertTimestampToISO(Instant.now().toEpochMilli()))
-                           .eventProcessedTime(Instant.now().toEpochMilli())
-                           .tags(GnmiMessageUtils.convertGnmiTagsToDruidTags(gnmiMessage.getTags()))
-                           .metricValue(value).build();
-    }
 
     @Override
     public GnmiMessageType getMessageType() {
