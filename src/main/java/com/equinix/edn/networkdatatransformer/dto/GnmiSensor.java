@@ -67,6 +67,12 @@ public class GnmiSensor {
     @JsonProperty("in-discards")
     private Long inDiscards;
 
+    @JsonProperty("rx-drops")
+    private Long inDrops;
+
+    @JsonProperty("tx-drops")
+    private Long outDrops;
+
     @JsonProperty("in-errors")
     private Long inErrors;
 
