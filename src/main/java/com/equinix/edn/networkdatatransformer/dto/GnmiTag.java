@@ -15,13 +15,17 @@ public class GnmiTag {
     private String metro;
     private String region;
     private String source;
+
     @JsonAlias({"port_port-id"})
     @JsonProperty(value = "interface_name")
     private String interfaceName;
+
     @JsonProperty(value = "subscription_name")
     private String subscriptionName;
+
     @JsonAlias({"neighbor_neighbor-address", "neighbor_ip-address"})
     private String neighborAddress;
+
     @JsonAlias({"network-instance_name", "vprn_service-name"})
     private String networkInstanceName;
 }

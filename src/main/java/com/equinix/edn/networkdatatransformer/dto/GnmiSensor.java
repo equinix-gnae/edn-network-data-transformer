@@ -11,70 +11,94 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class GnmiSensor {
     @JsonProperty("carrier-transitions")
     private Long carrierTransitions;
+
     @JsonProperty("high-speed")
     private Long highSpeed;
+
     @JsonProperty("in-broadcast-pkts")
     @JsonAlias("in-broadcast-packets")
     private Long inBroadcastPkts;
+
     @JsonProperty("in-octets")
+    @JsonAlias("rx-octets")
     private Long inOctets;
+
     @JsonProperty("in-pkts")
-    @JsonAlias("in-packets")
+    @JsonAlias({"in-packets", "rx-packets"})
     private Long inPkts;
+
     @JsonProperty("in-unicast-pkts")
     @JsonAlias("in-unicast-packets")
     private Long inUnicastPkts;
+
     @JsonProperty("init_time")
     private Long initTime;
+
     @JsonProperty("out-broadcast-pkts")
     @JsonAlias("out-broadcast-packets")
     private Long outBroadcastPkts;
+
     @JsonAlias({"out-multicast-packets", "out-multicast-pkts"})
     private Long outMulticastPkts;
+
     @JsonProperty("out-octets")
+    @JsonAlias("tx-octets")
     private Long outOctets;
+
     @JsonProperty("out-pkts")
-    @JsonAlias("out-packets")
+    @JsonAlias({"out-packets", "tx-packets"})
     private Long outPkts;
+
     @JsonProperty("out-unicast-pkts")
     @JsonAlias("out-unicast-packets")
     private Long outUnicastPkts;
+
     @JsonProperty("parent_ae_name")
     private String parentAeName;
+
     @JsonProperty("in-discards")
     private Long inDiscards;
+
     @JsonProperty("in-errors")
     private Long inErrors;
+
     @JsonProperty("in-multicast-pkts")
     @JsonAlias("in-multicast-packets")
     private Long inMulticastPackets;
+
     @JsonProperty("in-unknown-protocol-discards")
     private Long inUnknownProtocolDiscards;
+
     @JsonProperty("out-discards")
     private Long outDiscards;
+
     @JsonProperty("out-errors")
     private Long outErrors;
+
     @JsonProperty("out-multicast-pkts")
     @JsonAlias("out-multicast-packets")
     private Long outMulticastPackets;
-    @JsonProperty("in-packets")
-    private Long inPackets;
-    @JsonProperty("out-packets")
-    private Long outPackets;
+
     @JsonProperty("oper-status")
     private String operStatus;
+
     @JsonProperty("session-state")
     private String bgpSessionState;
+
     @JsonProperty("session-admin-status")
     private String bgpAdminState;
+
     @JsonProperty("active-routes")
     private Long bgpActiveRoutes;
+
     @JsonProperty("available-routes")
     private Long bgpAvailableRoutes;
 

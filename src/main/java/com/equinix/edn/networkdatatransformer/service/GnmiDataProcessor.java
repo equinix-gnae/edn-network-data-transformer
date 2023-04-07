@@ -21,8 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 public class GnmiDataProcessor {
 
     private final DruidTransformerMapBuilder druidTransformerMapBuilder;
-   private final EdnKafkaConfig ednKafkaConfig;
-   private final DruidKafkaProducer druidKafkaProducer;
+    private final EdnKafkaConfig ednKafkaConfig;
+    private final DruidKafkaProducer druidKafkaProducer;
 
     public GnmiDataProcessor(DruidTransformerMapBuilder druidTransformerMapBuilder, EdnKafkaConfig ednKafkaConfig,
                              DruidKafkaProducer druidKafkaProducer) {
@@ -38,8 +38,10 @@ public class GnmiDataProcessor {
         log.info("[GNMI] GNMI Message {}", gnmiMessage);
 
         List<DruidMessage> druidMessages =
-                (List<DruidMessage>) druidTransformerMapBuilder.getTransformer(DruidDataSourceType.GNMI)
-                                                               .transform(gnmiMessage);
+                (List<DruidMessage>) druidTransformerMapBuilder
+                        .getTransformer(DruidDataSourceType.GNMI)
+                        .transform(gnmiMessage);
+
         log.info("[GNMI] Druid Messages {}", druidMessages);
         sendDruidMessagesToKafka(druidMessages);
     }
