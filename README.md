@@ -126,58 +126,86 @@ Interface Stats
 ```
 ## Interface State
 ### Junos
+```
 [
-{
-"name": "junos-interface",
-"timestamp": 1677141727556676900,
-"tags": {
-"ibx": "sv5",
-"interface_name": "fxp0",
-"metro": "SV",
-"source": "172.20.98.246:32767",
-"subscription-name": "junos-interface"
-},
-"values": {
-"oper-status": "up"
-}
-}
+    {
+        "name": "junos-interface",
+        "timestamp": 1677141727556676900,
+        "tags": {
+            "ibx": "sv5",
+            "interface_name": "fxp0",
+            "metro": "SV",
+            "source": "172.20.98.246:32767",
+            "subscription-name": "junos-interface"
+        },
+        "values": {
+            "oper-status": "up"
+        }
+    }
 ]
+```
 
 ### Nokia
+```
 [
-{
-"name": "nokia-interface",
-"timestamp": 1677141752251474400,
-"tags": {
-"ibx": "sv5",
-"metro": "SV",
-"port_port-id": "A/4",
-"source": "10.202.10.180:57400",
-"subscription-name": "nokia-interface"
-},
-"values": {
-"oper-state": "down"
-}
-}
+    {
+        "name": "nokia-interface",
+        "timestamp": 1677141752251474400,
+        "tags": {
+            "ibx": "sv5",
+            "metro": "SV",
+            "port_port-id": "A/4",
+            "source": "10.202.10.180:57400",
+            "subscription-name": "nokia-interface"
+        },
+        "values": {
+            "oper-state": "down"
+        }
+    }
 ]
+```
 
 ### Arrcus
+```
 [
-{
-"name": "arrcus-interface",
-"timestamp": 1678307944617930000,
-"tags": {
-"ibx": "sv5",
-"interface_name": "loopback0",
-"metro": "SV",
-"source": "10.196.21.62:9339",
-"subscription-name": "arrcus-interface"
-},
-"values": {
-"oper-status": "up"
-}
-}
+    {
+        "name": "arrcus-interface",
+        "timestamp": 1678307944617930000,
+        "tags": {
+            "ibx": "sv5",
+            "interface_name": "loopback0",
+            "metro": "SV",
+            "source": "10.196.21.62:9339",
+            "subscription-name": "arrcus-interface"
+        },
+        "values": {
+            "oper-status": "up"
+        }
+    }
 ]
+```
+
+### Drivnet
+```
+[
+    {
+        "name": "drivenets-interface",
+        "timestamp": 1681222342854672391,
+        "tags": {
+            "ibx": "sv3",
+            "interface_name": "fab-ncp400-0/0/30",
+            "metro": "SV",
+            "platform": "drivenets",
+            "role": "leaf-node",
+            "source": "sp3-ngn.gv51.lab.equinix.com",
+            "subscription-name": "drivenets-interface"
+        },
+        "values": {
+            "admin-state": "UP"
+        }
+    }
+]
+```
 
 ## BGP Session State
 ### Junos

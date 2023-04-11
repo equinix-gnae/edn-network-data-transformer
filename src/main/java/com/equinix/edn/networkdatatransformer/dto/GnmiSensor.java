@@ -94,6 +94,7 @@ public class GnmiSensor {
     private Long outMulticastPackets;
 
     @JsonProperty("oper-status")
+    @JsonAlias({"admin-state", "oper-state"})
     private String operStatus;
 
     @JsonProperty("session-state")
