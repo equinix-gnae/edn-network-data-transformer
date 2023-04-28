@@ -32,9 +32,9 @@ jobs:
 
 
     - name: Build & push Docker image
-      uses: 
+      uses: actions/docker-build-push@v5
       with:
-        image: 
+        image: akolisetty/edn
         tags: latest
         registry: docker.io
         dockerfile: Dockerfile
