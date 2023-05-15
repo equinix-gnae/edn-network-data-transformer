@@ -1,6 +1,6 @@
 # This workflow will build a Java springboot project with Maven, build, publish docker image and cache/restore any dependencies to improve the workflow execution time
 
-name: Java CI with Maven
+name: Java Springboot CI with Maven Pipeline
 
 on:
   push:
