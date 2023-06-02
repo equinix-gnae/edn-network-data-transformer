@@ -26,7 +26,7 @@ jobs:
 
 
     - name: Build & push Docker image
-      uses: actions/docker-build-push@v5
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: akolisetty/edn
         tags: latest
