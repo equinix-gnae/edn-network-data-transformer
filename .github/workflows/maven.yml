@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-
+    name: Build-Jar
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +24,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-
+  image:
+    name: Build-Image
+    runs-on: ubuntu-latest
+    steps:
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
@@ -36,7 +39,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
   deploy:
-    name: Deploy to Kubernetes
+    name: Deploy-to-Kubernetes
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
