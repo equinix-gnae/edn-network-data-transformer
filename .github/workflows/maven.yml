@@ -26,6 +26,7 @@ jobs:
 
   image:
     name: Build-Image
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Build & push Docker image
@@ -40,6 +41,7 @@ jobs:
 
   deploy:
     name: Deploy-to-Kubernetes
+    needs: image
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
