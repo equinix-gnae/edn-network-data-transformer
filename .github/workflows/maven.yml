@@ -62,5 +62,7 @@ jobs:
         mkdir ${HOME}/.kube
         echo "${{ secrets.KUBE_CONFIG1 }}" > ${HOME}/.kube/config
         cat ${HOME}/.kube/config
+    - name: Use context
+      run: kubectl config use-context default
     - name: Get Namespaces
       run: kubectl get namespaces   
