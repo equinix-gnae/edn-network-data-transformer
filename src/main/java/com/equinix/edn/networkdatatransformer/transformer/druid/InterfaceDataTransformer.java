@@ -29,7 +29,7 @@ public class InterfaceDataTransformer implements GnmiMessageTransformer{
         if (null != gnmiMessage.getValues().getOperStatus()) {
             DruidMessage druidMessage =
                     GnmiMessageUtils.createDruidMessage(gnmiMessage, GnmiSensorConstants.OPER_STATUS, null);
-            druidMessage.setState(gnmiMessage.getValues().getOperStatus());
+            druidMessage.setState(gnmiMessage.getValues().getOperStatus().toLowerCase());
             druidMessageList.add(druidMessage);
         }
 

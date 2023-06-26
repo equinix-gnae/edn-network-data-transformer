@@ -11,145 +11,201 @@ Metrics: metric_value
 ## Interface Stats
 ### Junos
 Interface Stats
+```
 [
-{
-"name": "junos-interface",
-"timestamp": 1678308514964000000,
-"tags": {
-"ibx": "sv5",
-"interface_name": "xe-0/0/1",
-"metro": "SV",
-"source": "172.20.98.246:32767",
-"subscription-name": "junos-interface"
-},
-"values": {
-"carrier-transitions": 3,
-"high-speed": 10000,
-"in-broadcast-pkts": 4,
-"in-octets": 10164,
-"in-pkts": 169,
-"in-unicast-pkts": 165,
-"init_time": 1647996238,
-"out-broadcast-pkts": 171,
-"out-multicast-pkts": 43758,
-"out-octets": 18206510262506,
-"out-pkts": 165513649410,
-"out-unicast-pkts": 165513605480,
-"parent_ae_name": ""
-}
-}
+    {
+        "name": "junos-interface",
+        "timestamp": 1678308514964000000,
+        "tags": {
+            "ibx": "sv5",
+            "interface_name": "xe-0/0/1",
+            "metro": "SV",
+            "source": "172.20.98.246:32767",
+            "subscription-name": "junos-interface"
+        },
+        "values": {
+            "carrier-transitions": 3,
+            "high-speed": 10000,
+            "in-broadcast-pkts": 4,
+            "in-octets": 10164,
+            "in-pkts": 169,
+            "in-unicast-pkts": 165,
+            "init_time": 1647996238,
+            "out-broadcast-pkts": 171,
+            "out-multicast-pkts": 43758,
+            "out-octets": 18206510262506,
+            "out-pkts": 165513649410,
+            "out-unicast-pkts": 165513605480,
+            "parent_ae_name": ""
+        }
+    }
 ]
-
+```
 
  Nokia
+```
 [
-{
-"name": "nokia-interface",
-"timestamp": 1677141752251473700,
-"tags": {
-"ibx": "sv5",
-"metro": "SV",
-"port_port-id": "A/4",
-"source": "10.202.10.180:57400",
-"subscription-name": "nokia-interface"
-},
-"values": {
-"in-broadcast-packets": "0",
-"in-discards": "0",
-"in-errors": "0",
-"in-multicast-packets": "0",
-"in-octets": "0",
-"in-packets": "0",
-"in-unicast-packets": "0",
-"in-unknown-protocol-discards": "0",
-"out-broadcast-packets": "0",
-"out-discards": "0",
-"out-errors": "0",
-"out-multicast-packets": "0",
-"out-octets": "0",
-"out-packets": "0",
-"out-unicast-packets": "0"
-}
-}
+    {
+        "name": "nokia-interface",
+        "timestamp": 1677141752251473700,
+        "tags": {
+            "ibx": "sv5",
+            "metro": "SV",
+            "port_port-id": "A/4",
+            "source": "10.202.10.180:57400",
+            "subscription-name": "nokia-interface"
+        },
+        "values": {
+            "in-broadcast-packets": "0",
+            "in-discards": "0",
+            "in-errors": "0",
+            "in-multicast-packets": "0",
+            "in-octets": "0",
+            "in-packets": "0",
+            "in-unicast-packets": "0",
+            "in-unknown-protocol-discards": "0",
+            "out-broadcast-packets": "0",
+            "out-discards": "0",
+            "out-errors": "0",
+            "out-multicast-packets": "0",
+            "out-octets": "0",
+            "out-packets": "0",
+            "out-unicast-packets": "0"
+        }
+    }
 ]
+```
 
 ### Arrcus
+```
 [
-{
-"name": "arrcus-interface",
-"timestamp": 1678307947928291000,
-"tags": {
-"ibx": "sv5",
-"interface_name": "swp30",
-"metro": "SV",
-"source": "10.196.21.62:9339",
-"subscription-name": "arrcus-interface"
-},
-"values": {
-"in-discards": 0,
-"in-errors": 0,
-"in-octets": 0,
-"out-discards": 0,
-"out-errors": 0,
-"out-octets": 0
-}
-}
+    {
+        "name": "arrcus-interface",
+        "timestamp": 1678307947928291000,
+        "tags": {
+            "ibx": "sv5",
+            "interface_name": "swp30",
+            "metro": "SV",
+            "source": "10.196.21.62:9339",
+            "subscription-name": "arrcus-interface"
+        },
+        "values": {
+            "in-discards": 0,
+            "in-errors": 0,
+            "in-octets": 0,
+            "out-discards": 0,
+            "out-errors": 0,
+            "out-octets": 0
+        }
+    }
 ]
-
+```
+### Drivenet
+```
+[
+    {
+        "name": "drivenets-interface",
+        "timestamp": 1680899328201643639,
+        "tags": {
+            "ibx": "sv3",
+            "interface_name": "vrfr1-0/0/0",
+            "metro": "SV",
+            "platform": "drivenets",
+            "role": "leaf-node",
+            "source": "sp3-ngn.gv51.lab.equinix.com",
+            "subscription-name": "drivenets-interface"
+        },
+        "values": {
+            "rx-octets": 0,
+            "rx-packets": 0,
+            "tx-octets": 0,
+            "tx-packets": 0
+        }
+    }
+]
+```
 ## Interface State
 ### Junos
+```
 [
-{
-"name": "junos-interface",
-"timestamp": 1677141727556676900,
-"tags": {
-"ibx": "sv5",
-"interface_name": "fxp0",
-"metro": "SV",
-"source": "172.20.98.246:32767",
-"subscription-name": "junos-interface"
-},
-"values": {
-"oper-status": "up"
-}
-}
+    {
+        "name": "junos-interface",
+        "timestamp": 1677141727556676900,
+        "tags": {
+            "ibx": "sv5",
+            "interface_name": "fxp0",
+            "metro": "SV",
+            "source": "172.20.98.246:32767",
+            "subscription-name": "junos-interface"
+        },
+        "values": {
+            "oper-status": "up"
+        }
+    }
 ]
+```
 
 ### Nokia
+```
 [
-{
-"name": "nokia-interface",
-"timestamp": 1677141752251474400,
-"tags": {
-"ibx": "sv5",
-"metro": "SV",
-"port_port-id": "A/4",
-"source": "10.202.10.180:57400",
-"subscription-name": "nokia-interface"
-},
-"values": {
-"oper-state": "down"
-}
-}
+    {
+        "name": "nokia-interface",
+        "timestamp": 1677141752251474400,
+        "tags": {
+            "ibx": "sv5",
+            "metro": "SV",
+            "port_port-id": "A/4",
+            "source": "10.202.10.180:57400",
+            "subscription-name": "nokia-interface"
+        },
+        "values": {
+            "oper-state": "down"
+        }
+    }
 ]
+```
 
 ### Arrcus
+```
 [
-{
-"name": "arrcus-interface",
-"timestamp": 1678307944617930000,
-"tags": {
-"ibx": "sv5",
-"interface_name": "loopback0",
-"metro": "SV",
-"source": "10.196.21.62:9339",
-"subscription-name": "arrcus-interface"
-},
-"values": {
-"oper-status": "up"
-}
-}
+    {
+        "name": "arrcus-interface",
+        "timestamp": 1678307944617930000,
+        "tags": {
+            "ibx": "sv5",
+            "interface_name": "loopback0",
+            "metro": "SV",
+            "source": "10.196.21.62:9339",
+            "subscription-name": "arrcus-interface"
+        },
+        "values": {
+            "oper-status": "up"
+        }
+    }
 ]
+```
+
+### Drivnet
+```
+[
+    {
+        "name": "drivenets-interface",
+        "timestamp": 1681222342854672391,
+        "tags": {
+            "ibx": "sv3",
+            "interface_name": "fab-ncp400-0/0/30",
+            "metro": "SV",
+            "platform": "drivenets",
+            "role": "leaf-node",
+            "source": "sp3-ngn.gv51.lab.equinix.com",
+            "subscription-name": "drivenets-interface"
+        },
+        "values": {
+            "admin-state": "UP"
+        }
+    }
+]
+```
 
 ## BGP Session State
 ### Junos
